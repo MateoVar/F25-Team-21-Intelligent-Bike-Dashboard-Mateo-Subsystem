@@ -1,0 +1,115 @@
+.currentSpeed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: var(--apple-radius-lg);
+    box-shadow: var(--apple-shadow-md);
+    border: 0.5px solid var(--apple-gray-2);
+    font-weight: 700;
+    color: var(--apple-gray-11);
+    text-align: center;
+    user-select: none;
+    outline: none;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: -0.02em;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    flex-shrink: 0;
+    overflow: hidden;
+    
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: var(--apple-shadow-lg);
+        background-color: rgba(255, 255, 255, 0.95);
+    }
+    
+    &:active {
+        transform: translateY(0);
+        box-shadow: var(--apple-shadow-md);
+    }
+}
+
+.text {
+    font-size: var(--apple-font-size-title-2);
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+    padding: 0 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .currentSpeed {
+        height: 70px;
+    }
+    
+    .text {
+        font-size: var(--apple-font-size-title-3);
+    }
+}
+
+@media (max-width: 1000px) {
+    .currentSpeed {
+        height: 60px;
+    }
+    
+    .text {
+        font-size: var(--apple-font-size-headline);
+    }
+}
+
+@media (max-width: 800px) {
+    .currentSpeed {
+        height: 50px;
+    }
+    
+    .text {
+        font-size: var(--apple-font-size-body);
+    }
+}
+
+@media (max-width: 600px) {
+    .currentSpeed {
+        height: 45px;
+    }
+    
+    .text {
+        font-size: var(--apple-font-size-callout);
+    }
+}
+
+@media (max-height: 600px) {
+    .currentSpeed {
+        height: 60px;
+    }
+    
+    .text {
+        font-size: var(--apple-font-size-title-3);
+    }
+}
+
+/* Specific breakpoint for 1024x600 screens */
+@media (max-width: 1024px) and (max-height: 600px) {
+    .currentSpeed {
+        height: 50px;
+    }
+    
+    .text {
+        font-size: var(--apple-font-size-body);
+        padding: 0 4px;
+    }
+}
+
+/* Additional responsive breakpoints for very small screens */
+@media (max-width: 480px) {
+    .currentSpeed {
+        height: 40px;
+        font-size: var(--apple-font-size-callout);
+    }
+}

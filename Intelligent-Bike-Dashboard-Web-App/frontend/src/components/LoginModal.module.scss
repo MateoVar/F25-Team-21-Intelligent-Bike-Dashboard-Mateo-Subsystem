@@ -1,0 +1,225 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  animation: fadeIn 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  isolation: isolate;
+}
+
+.modalContent {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--apple-radius-xl);
+  border: 0.5px solid var(--apple-gray-2);
+  padding: 0;
+  max-width: 420px;
+  width: 90%;
+  max-height: 90vh;
+  box-shadow: var(--apple-shadow-xl);
+  animation: slideUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--apple-spacing-lg) var(--apple-spacing-lg) var(--apple-spacing-md);
+  border-bottom: 0.5px solid var(--apple-gray-2);
+
+  h2 {
+    margin: 0;
+    font-size: var(--apple-font-size-title-3);
+    font-weight: 600;
+    color: var(--apple-gray-11);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--apple-gray-6);
+  padding: var(--apple-spacing-xs);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--apple-radius-sm);
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  &:hover {
+    color: var(--apple-gray-11);
+    background-color: var(--apple-gray-1);
+  }
+}
+
+.loginForm {
+  padding: var(--apple-spacing-lg);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.errorMessage {
+  background-color: rgba(255, 59, 48, 0.1);
+  border: 0.5px solid rgba(255, 59, 48, 0.2);
+  color: var(--apple-red);
+  padding: var(--apple-spacing-md);
+  border-radius: var(--apple-radius-md);
+  margin-bottom: var(--apple-spacing-md);
+  font-size: var(--apple-font-size-footnote);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.formGroup {
+  margin-bottom: var(--apple-spacing-lg);
+  flex-shrink: 0;
+}
+
+.label {
+  display: block;
+  margin-bottom: var(--apple-spacing-sm);
+  font-weight: 600;
+  color: var(--apple-gray-11);
+  font-size: var(--apple-font-size-footnote);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.input {
+  width: 100%;
+  padding: var(--apple-spacing-md);
+  border: 0.5px solid var(--apple-gray-3);
+  border-radius: var(--apple-radius-md);
+  font-size: var(--apple-font-size-body);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-sizing: border-box;
+  min-height: 44px;
+  
+  /* Enable native keyboard on touch devices */
+  touch-action: manipulation;
+  -webkit-touch-callout: default;
+  -webkit-user-select: text;
+  user-select: text;
+
+  &:focus {
+    outline: none;
+    border-color: var(--apple-blue);
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+
+  &:disabled {
+    background-color: var(--apple-gray-1);
+    color: var(--apple-gray-6);
+    cursor: not-allowed;
+  }
+
+  &::placeholder {
+    color: var(--apple-gray-5);
+  }
+}
+
+.buttonGroup {
+  display: flex;
+  gap: var(--apple-spacing-md);
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-top: var(--apple-spacing-lg);
+  flex-shrink: 0;
+}
+
+.cancelButton {
+  padding: var(--apple-spacing-md) var(--apple-spacing-lg);
+  border: 0.5px solid var(--apple-gray-3);
+  background-color: rgba(255, 255, 255, 0.8);
+  color: var(--apple-gray-11);
+  border-radius: var(--apple-radius-md);
+  font-size: var(--apple-font-size-footnote);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  &:hover:not(:disabled) {
+    background-color: var(--apple-gray-1);
+    border-color: var(--apple-gray-4);
+    transform: translateY(-0.5px);
+    box-shadow: var(--apple-shadow-sm);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.loginButton {
+  padding: var(--apple-spacing-md) var(--apple-spacing-lg);
+  border: none;
+  background-color: var(--apple-blue);
+  color: white;
+  border-radius: var(--apple-radius-md);
+  font-size: var(--apple-font-size-footnote);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: var(--apple-shadow-sm);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  &:hover:not(:disabled) {
+    background-color: var(--apple-blue-dark);
+    transform: translateY(-0.5px);
+    box-shadow: var(--apple-shadow-md);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

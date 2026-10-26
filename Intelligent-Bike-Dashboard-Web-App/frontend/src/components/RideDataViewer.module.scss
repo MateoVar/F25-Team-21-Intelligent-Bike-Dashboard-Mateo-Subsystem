@@ -1,0 +1,111 @@
+.RideDataViewer {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 20px 0;
+  background-color: #f9f9f9;
+}
+
+.RideDataViewer h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.RideDataViewer h4 {
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.fetchButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.fetchButton:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.fetchButton:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.noRides {
+  color: #6c757d;
+  font-style: italic;
+  padding: 20px;
+  text-align: center;
+}
+
+.ridesList {
+  margin-top: 20px;
+}
+
+.rideCard {
+  background-color: white;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.rideHeader {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #495057;
+}
+
+.rideDetails {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.rideDetails div {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.coordinatesDetails {
+  margin-top: 10px;
+}
+
+.coordinatesDetails summary {
+  cursor: pointer;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.coordinatesDetails summary:hover {
+  color: #0056b3;
+}
+
+.coordinatesPreview {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  padding: 10px;
+  font-size: 12px;
+  max-height: 300px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+}

@@ -1,0 +1,170 @@
+/* Red gradient border that wraps around the entire screen */
+.warningBorder {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Individual border segments */
+.borderTop,
+.borderRight,
+.borderBottom,
+.borderLeft {
+  position: absolute;
+  background: linear-gradient(to bottom, 
+    rgba(255, 59, 48, 0.9) 0%, 
+    rgba(255, 59, 48, 0.5) 50%, 
+    rgba(255, 59, 48, 0) 100%
+  );
+  animation: pulse-border 1.5s ease-in-out infinite;
+}
+
+.borderTop {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: linear-gradient(to bottom, 
+    rgba(255, 59, 48, 0.935) 0%, 
+    rgba(255, 59, 48, 0.545) 70%, 
+    rgba(255, 59, 48, 0) 100%
+  );
+}
+
+.borderRight {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 30px;
+  background: linear-gradient(to left, 
+    rgba(255, 59, 48, 0.935) 0%, 
+    rgba(255, 59, 48, 0.545) 70%, 
+    rgba(255, 59, 48, 0) 100%
+  );
+}
+
+.borderBottom {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: linear-gradient(to top, 
+    rgba(255, 59, 48, 0.935) 0%, 
+    rgba(255, 59, 48, 0.545) 70%, 
+    rgba(255, 59, 48, 0) 100%
+  );
+}
+
+.borderLeft {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 30px;
+  background: linear-gradient(to right, 
+    rgba(255, 59, 48, 0.935) 0%, 
+    rgba(255, 59, 48, 0.545) 70%, 
+    rgba(255, 59, 48, 0) 100%
+  );
+}
+
+/* Exclamation mark container - positioned in bottom left of map navigation component */
+.exclamationContainer {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  z-index: 10000;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Exclamation mark styling */
+.exclamationMark {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 59, 48, 0.95);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(255, 59, 48, 0.6),
+              0 0 40px rgba(255, 59, 48, 0.4);
+  animation: pulse-exclamation 1.5s ease-in-out infinite;
+  position: relative;
+}
+
+/* The vertical line of the exclamation mark */
+.exclamationLine {
+  width: 5px;
+  height: 22px;
+  background-color: white;
+  border-radius: 3px;
+  margin-bottom: 4px;
+}
+
+/* The dot of the exclamation mark */
+.exclamationDot {
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+/* Pulse animation for the border */
+@keyframes pulse-border {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Pulse animation for the exclamation mark */
+@keyframes pulse-exclamation {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(255, 59, 48, 0.6),
+                0 0 40px rgba(255, 59, 48, 0.4);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 59, 48, 0.8),
+                0 0 60px rgba(255, 59, 48, 0.6);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .borderTop,
+  .borderBottom {
+    height: 23px;
+  }
+  
+  .borderLeft,
+  .borderRight {
+    width: 23px;
+  }
+  
+  .exclamationMark {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .exclamationLine {
+    width: 4px;
+    height: 18px;
+  }
+  
+  .exclamationDot {
+    width: 5px;
+    height: 5px;
+  }
+}
+

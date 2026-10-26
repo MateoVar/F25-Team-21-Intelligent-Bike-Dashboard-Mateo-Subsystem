@@ -1,0 +1,17 @@
+# Ignore everything
+*
+
+# But keep these directories
+!Intelligent-Bike-Dashboard-Web-App/
+!Intelligent-Bike-Dashboard-Web-App/**
+
+
+
+# Also keep the .gitignore itself
+!.gitignore
+
+# Never commit dependencies, build output, or env files
+**/node_modules/
+**/build/
+**/.env*
+!**/.env.example

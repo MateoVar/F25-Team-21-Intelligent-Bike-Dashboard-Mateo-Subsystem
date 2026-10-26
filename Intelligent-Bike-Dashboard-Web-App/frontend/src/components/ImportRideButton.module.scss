@@ -1,0 +1,50 @@
+.ImportRideButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    background-color: var(--apple-blue);
+    padding: var(--apple-spacing-sm);
+    cursor: pointer;
+    border-radius: var(--apple-radius-lg);
+    box-shadow: var(--apple-shadow-md);
+    border: none;
+    font-size: var(--apple-font-size-callout);
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    user-select: none;
+    outline: none;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: -0.01em;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    flex-shrink: 0;
+    
+    &:hover {
+        background-color: var(--apple-blue-dark);
+        transform: translateY(-1px);
+        box-shadow: var(--apple-shadow-lg);
+    }
+    
+    &:active {
+        background-color: var(--apple-blue-dark);
+        transform: translateY(0);
+        box-shadow: var(--apple-shadow-md);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-height: 600px) {
+    .ImportRideButton {
+        height: 50px;
+        font-size: var(--apple-font-size-footnote);
+    }
+}
+
+@media (max-height: 500px) {
+    .ImportRideButton {
+        height: 40px;
+        font-size: var(--apple-font-size-caption-1);
+    }
+}

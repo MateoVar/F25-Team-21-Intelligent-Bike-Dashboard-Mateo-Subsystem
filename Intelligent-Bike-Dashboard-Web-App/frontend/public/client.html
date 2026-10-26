@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Message App and Data Realtime update app</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, touch-action=pan-x pan-y">
+    <style>
+        /* Enable native keyboard on input fields for touch devices */
+        input {
+            touch-action: manipulation;
+            -webkit-touch-callout: default;
+            -webkit-user-select: text;
+            user-select: text;
+            min-height: 44px;
+            font-size: 16px; /* Prevents zoom on iOS */
+        }
+    </style>
+</head>
+<body>
+    <!--unordered list (this is where the chat messages will appear)-->
+    <ul id="messages"></ul>
+
+    <!--this is where user types their message-->
+    <input id="messageInput" placeholder="message">
+    <!--this is button for user to click on to send their message-->
+    <button id="sendButton">Send</button>
+
+    <!--this is button for user to click on to like-->
+    <!--button id="likeButton">Like</button-->
+    <!--<p>Likes: <span id="likesCount">0</span></p>-->
+
+    <!-- Section to show the most recent datapoint received from the server. We overwrite the previous datapoint, rather than appending. -->
+    <div id="latestDataSection">
+        <h3>Most Recent Data:</h3>
+        <p id="latestData"></p>
+    </div>
+</body>
+
+<!--A script tag that points to the socket.io CDN for version 4.8.1 b/c socket.io is not a direct websocket implementation so you cant use "new WebSocket()"-->
+<!--Instead you have to use the socket.io client library which we're using here throught he CDN-->
+<!--if youre using React or Angular you can install socket.io-client through npm to bundle with your project/app-->
+<script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+
+<script>
+    // connect ot the socket.io server running on localhost:5000
+    const socket = io('http://localhost:5000');
+    
+    socket.on("connect", () => {
+        console.log("Connected to server");
+    });
+
+    const btn = document.getElementById('sendButton');
+    const input = document.getElementById('messageInput');
+    const messages = document.getElementById('messages');
+    //const likeButton = document.getElementById('likeButton');
+    //const likesCount = document.getElementById('likesCount');
+    const latestDataEl = document.getElementById('latestData');
+
+    // Function to send message and dismiss keyboard
+    const sendMessage = () => {
+        const message = input.value;
+        if (message.trim()) {
+            socket.emit('message', message);
+            input.value = ''; // clear the input field after sending the message
+            input.blur(); // dismiss keyboard
+        }
+    };
+
+    // send message to the server when the send button is clicked
+    btn.addEventListener('click', sendMessage);
+
+    // send message and dismiss keyboard when Enter is pressed
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            sendMessage();
+        }
+    });
+
+    // execute callback function after/when the server broadcasts any new chat message. You know to do this because upon reading 'message' from the socket we do the callback function
+    socket.on('message', (msg) => {
+        const li = document.createElement('li');
+        li.textContent = msg;
+        messages.appendChild(li);
+    });
+    
+    /*
+    // when the like button is clicked then emit to the server the 'liked' message which will tell the server that the liked event as occured so the server knows to increase the like datapoint it has stored
+   
+    likeButton.addEventListener('click', () => {
+        socket.emit('liked');
+    });
+
+    // update on our end the most recent liked value that the server has sent to us, but only do this when we receive the 'likeupdate' message from the server in the socket pipeline
+    socket.on('likeupdate', (likes) => {
+        likesCount.textContent = likes;
+    });
+    */
+
+    socket.on('data', (latest) => {
+        // Overwrite the contents of the #latestData paragraph
+        latestDataEl.textContent = latest;
+    });
+</script>
+</html>

@@ -1,0 +1,103 @@
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Enable native keyboard on all input fields for touch devices */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+textarea {
+  touch-action: manipulation;
+  -webkit-touch-callout: default;
+  -webkit-user-select: text;
+  user-select: text;
+  font-size: 16px; /* Prevents zoom on iOS when focusing inputs */
+  min-height: 44px; /* Ensures adequate touch target size */
+}
+
+/* Apple Design System Variables */
+:root {
+  /* Apple Colors */
+  --apple-blue: #007AFF;
+  --apple-blue-dark: #0056CC;
+  --apple-green: #34C759;
+  --apple-orange: #FF9500;
+  --apple-red: #FF3B30;
+  --apple-purple: #AF52DE;
+  --apple-pink: #FF2D92;
+  --apple-teal: #5AC8FA;
+  --apple-indigo: #5856D6;
+  --apple-yellow: #FFCC00;
+  
+  /* Apple Grays */
+  --apple-gray-1: #F2F2F7;
+  --apple-gray-2: #E5E5EA;
+  --apple-gray-3: #D1D1D6;
+  --apple-gray-4: #C7C7CC;
+  --apple-gray-5: #AEAEB2;
+  --apple-gray-6: #8E8E93;
+  --apple-gray-7: #636366;
+  --apple-gray-8: #48484A;
+  --apple-gray-9: #3A3A3C;
+  --apple-gray-10: #2C2C2E;
+  --apple-gray-11: #1C1C1E;
+  
+  /* Apple Typography */
+  --apple-font-size-large-title: 34px;
+  --apple-font-size-title-1: 28px;
+  --apple-font-size-title-2: 22px;
+  --apple-font-size-title-3: 20px;
+  --apple-font-size-headline: 17px;
+  --apple-font-size-body: 17px;
+  --apple-font-size-callout: 16px;
+  --apple-font-size-subhead: 15px;
+  --apple-font-size-footnote: 13px;
+  --apple-font-size-caption-1: 12px;
+  --apple-font-size-caption-2: 11px;
+  
+  /* Apple Spacing */
+  --apple-spacing-xs: 4px;
+  --apple-spacing-sm: 8px;
+  --apple-spacing-md: 16px;
+  --apple-spacing-lg: 24px;
+  --apple-spacing-xl: 32px;
+  --apple-spacing-xxl: 48px;
+  
+  /* Apple Border Radius */
+  --apple-radius-sm: 6px;
+  --apple-radius-md: 8px;
+  --apple-radius-lg: 12px;
+  --apple-radius-xl: 16px;
+  --apple-radius-xxl: 20px;
+  
+  /* Apple Shadows */
+  --apple-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --apple-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --apple-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+  --apple-shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.25);
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  font-weight: 100;
+  src: url("https://developer.apple.com/design/downloads/SF-Pro-Display.zip");
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  font-weight: 100;
+  src: url("https://developer.apple.com/design/downloads/SF-Pro-Text.zip");
+}

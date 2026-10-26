@@ -1,0 +1,64 @@
+.container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+}
+
+.dot {
+    position: absolute;
+    width: 88px;
+    height: 88px;
+    background-color: var(--apple-red);
+    border-radius: 50%;
+    z-index: 1;
+    animation: pulse 2s infinite;
+    box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7);
+}
+
+.icon {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    z-index: 2;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.topLeft {
+    top: var(--apple-spacing-md);
+    left: var(--apple-spacing-md);
+}
+  
+.topRight {
+    top: var(--apple-spacing-md);
+    right: var(--apple-spacing-md);
+}
+  
+.bottomRight {
+    bottom: var(--apple-spacing-md);
+    right: var(--apple-spacing-md);
+}
+  
+.bottomLeft {
+    bottom: var(--apple-spacing-md);
+    left: var(--apple-spacing-md);
+}
+  
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.7);
+    }
+    
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(255, 59, 48, 0);
+    }
+    
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 59, 48, 0);
+    }
+}

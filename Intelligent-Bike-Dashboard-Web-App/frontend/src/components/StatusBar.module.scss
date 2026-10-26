@@ -1,0 +1,555 @@
+.statusBar {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  background-color: transparent;
+  height: 100%;
+  margin: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  width: 100%;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+/* Responsive statusBar height adjustments to match header */
+@media (max-width: 1200px) {
+  .statusBar {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  .statusBar {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .statusBar {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .statusBar {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media (max-height: 600px) {
+  .statusBar {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media (max-height: 500px) {
+  .statusBar {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  gap: var(--apple-spacing-sm);
+  width: 100%;
+  min-height: 0;
+}
+
+/* Ride Active Indicator */
+.rideActiveIndicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(52, 199, 89, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 0.5px solid rgba(52, 199, 89, 0.3);
+  border-radius: var(--apple-radius-lg);
+  box-shadow: var(--apple-shadow-md);
+  padding: 4px 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  animation: slideIn 0.3s ease-out;
+  flex: 0 0 auto;
+  margin-right: var(--apple-spacing-sm);
+  height: 28px;
+}
+
+.rideActiveDot {
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+  animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  flex-shrink: 0;
+}
+
+.rideActiveText {
+  font-size: 10px;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+.songInfoContainer {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  min-width: 120px;
+  max-width: 300px;
+  margin: 0 var(--apple-spacing-sm);
+}
+
+.time {
+  font-size: var(--apple-font-size-large-title);
+  font-weight: 700;
+  color: var(--apple-gray-11);
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  letter-spacing: -0.02em;
+  text-align: center;
+  flex: 0 0 auto;
+  min-width: 80px;
+  max-width: 120px;
+  margin: 0 var(--apple-spacing-sm);
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  margin-right: var(--apple-spacing-md);
+  margin-left: var(--apple-spacing-sm);
+  z-index: 2;
+}
+
+.logoutButton {
+  padding: var(--apple-spacing-md) var(--apple-spacing-lg);
+  border: 0.5px solid var(--apple-gray-3);
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--apple-gray-11);
+  border-radius: var(--apple-radius-lg);
+  font-size: var(--apple-font-size-headline);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  height: 88px;
+  min-width: 120px;
+  box-shadow: var(--apple-shadow-sm);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-color: var(--apple-gray-4);
+    transform: translateY(-1px);
+    box-shadow: var(--apple-shadow-md);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: var(--apple-shadow-sm);
+  }
+}
+
+.loginButton {
+  padding: var(--apple-spacing-md) var(--apple-spacing-lg);
+  border: none;
+  background-color: var(--apple-blue);
+  color: white;
+  border-radius: var(--apple-radius-lg);
+  font-size: var(--apple-font-size-headline);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: var(--apple-shadow-sm);
+  height: 88px;
+  min-width: 120px;
+
+  &:hover {
+    background-color: var(--apple-blue-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--apple-shadow-md);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: var(--apple-shadow-sm);
+  }
+}
+
+/* Additional responsive adjustments for content */
+@media (max-width: 1600px) {
+  .topRow {
+    gap: var(--apple-spacing-xs);
+  }
+  
+  .songInfoContainer {
+    min-width: 100px;
+    max-width: 280px;
+  }
+  
+  .time {
+    font-size: var(--apple-font-size-title-1);
+    min-width: 70px;
+    max-width: 110px;
+  }
+  
+  .logoutButton, .loginButton {
+    height: 80px;
+    min-width: 100px;
+    font-size: var(--apple-font-size-body);
+  }
+  
+  .buttonContainer {
+    margin-right: var(--apple-spacing-sm);
+    margin-left: var(--apple-spacing-xs);
+  }
+  
+  .rideActiveIndicator {
+    padding: 4px 8px;
+    height: 26px;
+  }
+  
+  .rideActiveText {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .topRow {
+    gap: var(--apple-spacing-xs);
+  }
+  
+  .songInfoContainer {
+    min-width: 90px;
+    max-width: 260px;
+  }
+  
+  .time {
+    font-size: var(--apple-font-size-title-2);
+    min-width: 65px;
+    max-width: 100px;
+  }
+  
+  .logoutButton, .loginButton {
+    height: 72px;
+    min-width: 90px;
+    font-size: var(--apple-font-size-body);
+  }
+  
+  .buttonContainer {
+    margin-right: var(--apple-spacing-sm);
+    margin-left: var(--apple-spacing-xs);
+  }
+  
+  .rideActiveIndicator {
+    padding: 3px 8px;
+    height: 24px;
+  }
+  
+  .rideActiveDot {
+    width: 5px;
+    height: 5px;
+  }
+  
+  .rideActiveText {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .topRow {
+    gap: var(--apple-spacing-xs);
+  }
+  
+  .songInfoContainer {
+    min-width: 80px;
+    max-width: 240px;
+  }
+  
+  .time {
+    font-size: var(--apple-font-size-title-3);
+    min-width: 60px;
+    max-width: 90px;
+  }
+  
+  .logoutButton, .loginButton {
+    height: 64px;
+    min-width: 80px;
+    font-size: var(--apple-font-size-callout);
+  }
+  
+  .buttonContainer {
+    margin-right: var(--apple-spacing-xs);
+    margin-left: 4px;
+  }
+  
+  .rideActiveIndicator {
+    padding: 3px 6px;
+    height: 22px;
+    margin-right: var(--apple-spacing-xs);
+  }
+  
+  .rideActiveDot {
+    width: 5px;
+    height: 5px;
+  }
+  
+  .rideActiveText {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .topRow {
+    gap: var(--apple-spacing-xs);
+  }
+  
+  .songInfoContainer {
+    min-width: 70px;
+    max-width: 220px;
+  }
+  
+  .time {
+    font-size: var(--apple-font-size-headline);
+    min-width: 55px;
+    max-width: 80px;
+  }
+  
+  .logoutButton, .loginButton {
+    height: 56px;
+    min-width: 70px;
+    font-size: var(--apple-font-size-footnote);
+  }
+  
+  .buttonContainer {
+    margin-right: var(--apple-spacing-xs);
+    margin-left: 4px;
+  }
+  
+  .rideActiveIndicator {
+    padding: 2px 6px;
+    height: 20px;
+    margin-right: var(--apple-spacing-xs);
+  }
+  
+  .rideActiveDot {
+    width: 4px;
+    height: 4px;
+  }
+  
+  .rideActiveText {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 800px) {
+  .topRow {
+    gap: var(--apple-spacing-xs);
+  }
+  
+  .songInfoContainer {
+    min-width: 60px;
+    max-width: 200px;
+  }
+  
+  .time {
+    font-size: var(--apple-font-size-body);
+    min-width: 50px;
+    max-width: 70px;
+  }
+  
+  .logoutButton, .loginButton {
+    height: 48px;
+    min-width: 60px;
+    font-size: var(--apple-font-size-caption-1);
+  }
+  
+  .buttonContainer {
+    margin-right: 4px;
+    margin-left: 3px;
+  }
+}
+
+@media (max-width: 600px) {
+  .topRow {
+    gap: 2px;
+  }
+  
+  .songInfoContainer {
+    min-width: 50px;
+    max-width: 180px;
+  }
+  
+  .time {
+    font-size: var(--apple-font-size-callout);
+    min-width: 45px;
+    max-width: 65px;
+  }
+  
+  .logoutButton, .loginButton {
+    height: 44px;
+    min-width: 50px;
+    font-size: var(--apple-font-size-caption-2);
+  }
+  
+  .buttonContainer {
+    margin-right: 2px;
+    margin-left: 2px;
+  }
+}
+
+@media (max-height: 600px) {
+  .topRow {
+    gap: var(--apple-spacing-xs);
+  }
+  
+  .songInfoContainer {
+    min-width: 90px;
+    max-width: 250px;
+  }
+  
+  .time {
+    font-size: var(--apple-font-size-title-1);
+    min-width: 65px;
+    max-width: 100px;
+  }
+  
+  .logoutButton, .loginButton {
+    height: 64px;
+    min-width: 100px;
+    font-size: var(--apple-font-size-body);
+  }
+  
+  .buttonContainer {
+    margin-left: var(--apple-spacing-xs);
+  }
+}
+
+/* Specific breakpoint for 1024x600 screens */
+@media (max-width: 1024px) and (max-height: 600px) {
+  .statusBar {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .topRow {
+    gap: 2px;
+  }
+  
+  .songInfoContainer {
+    min-width: 60px;
+    max-width: 200px;
+  }
+  
+  .time {
+    font-size: var(--apple-font-size-body);
+    min-width: 50px;
+    max-width: 70px;
+  }
+  
+  .logoutButton, .loginButton {
+    height: 60px;
+    min-width: 60px;
+    font-size: var(--apple-font-size-caption-1);
+  }
+  
+  .buttonContainer {
+    margin-right: 4px;
+    margin-left: 3px;
+  }
+}
+
+/* Additional responsive breakpoints for very small screens */
+@media (max-width: 480px) {
+  .statusBar {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .topRow {
+    gap: 1px;
+  }
+  
+  .songInfoContainer {
+    min-width: 40px;
+    max-width: 160px;
+  }
+  
+  .time {
+    font-size: var(--apple-font-size-callout);
+    min-width: 40px;
+    max-width: 60px;
+  }
+  
+  .logoutButton, .loginButton {
+    height: 44px;
+    min-width: 50px;
+    font-size: var(--apple-font-size-caption-2);
+  }
+  
+  .buttonContainer {
+    margin-right: 2px;
+    margin-left: 2px;
+  }
+}
+
+@media (max-width: 768px) {
+  .statusBar {
+    min-width: 300px;
+    margin: 0;
+  }
+  
+  .time {
+    font-size: var(--apple-font-size-title-2);
+  }
+}
